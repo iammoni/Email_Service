@@ -4,19 +4,18 @@ import sendgrid
 import os
 from sendgrid.helpers.mail import Mail,Email,content 
 import requests
-SENDGRID_API_KEY='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'
+SENDGRID_API_KEY='' 
+MALIGUN_API_KEY=''
 
-#Maligun
+#Service_Maligun
 
 def sendEmail_maliGun(information):
 	return requests.post(
 		"https://api.mailgun.net/v3/sandbox8f4c7b0a164044ae8b86e47d28e33b32.mailgun.org/messages",
-		auth=("api", "802c3dedfff6b762ea96fa8c554580ce-3d0809fb-ad2a65c5"),
+		auth=("api", MALIGUN_API_KEY),
 		data=information
-            )
-
-api_madrill='AgXl4bFM5P87KhmtF6sZFA'
-
+            
+#Service_SendGrid
 def sendEmail_sendGrid(sender_email,information):
     sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
     data = {
@@ -59,7 +58,7 @@ def index(request):
     else:
         context={
             'status':200,
-            'message':'Congrats,Mail has been Sended'
+            'message':'Congrats,Mail Sent'
         }
 
         information={
