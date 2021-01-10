@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import sendgrid
 import os
-from sendgrid.helpers.mail import Mail,Email,content 
 import requests
 SENDGRID_API_KEY='' 
 MALIGUN_API_KEY=''
